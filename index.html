@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Book Landing Page</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script src="./script.js" defer ></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div class="user-actions">
+                <i class="fa-solid fa-user"><span>Account</span></i>
+                <i class="fa-solid fa-cart-shopping"><span>Cart(0$)</span></i>
+                <!-- Bouton Mode Sombre -->
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <nav class="link-container">
+            <a href="#" class="logo">
+                <img src="img/main-logo.png" alt="Logo">
+            </a>
+            <i class="fa-solid fa-bars" onclick="toggleMenu()" id="menu-icon"></i>
+            <ul id="nav-menu">
+                <li class="list"><a href="#home">Home</a></li>
+                <li class="list"><a href="#featured">Featured</a></li>
+                <li class="list"><a href="#popular">Popular</a></li>
+                <li class="list"><a href="#newsletter">Newsletter</a></li>
+                <li class="list"><a href="#device">Download app</a></li>
+            </ul>
+        </nav>
+        <hr>
+
+        <main class="principal" id="home">
+            <div class="principal-text">
+                <h1>Life of the wild</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem obcaecati cum animi
+                    molestias omnis aperiam tempora provident nostrum nobis soluta sed, illo nulla.</p>
+                <button class="btn-primary">Read more</button>
+            </div>
+            <div class="principal-img">
+                <img src="img/main-banner1.jpg" alt="Bannière principale">
+            </div>
+        </main>
+    </header>
+
+    <section class="client-img">
+        <div class="img"><img src="img/client-image1.png" alt="Client 1"></div>
+        <div class="img"><img src="img/client-image2.png" alt="Client 2"></div>
+        <div class="img"><img src="img/client-image3.png" alt="Client 3"></div>
+        <div class="img"><img src="img/client-image4.png" alt="Client 4"></div>
+        <div class="img"><img src="img/client-image5.png" alt="Client 5"></div>
+    </section>
+
+    <section class="after-img-block" id="featured">
+        <p class="subtitle">Some quality items</p>
+        <h2>Featured Books</h2>
+
+        <div class="featured-book-container">
+            <!-- Produit 1 -->
+            <div class="featured">
+                <div class="product-img"><img src="img/product-item1.jpg" alt="Livre 1"></div>
+                <h3>Simple way of piece life</h3>
+                <h4>Armor Ramsey</h4>
+                <h5>$ 40.00</h5>
+                <button class="btn-cart">Add to cart</button>
+            </div>
+            <!-- Produit 2 -->
+            <div class="featured">
+                <div class="product-img"><img src="img/product-item2.jpg" alt="Livre 2"></div>
+                <h3>Great travel at desert</h3>
+                <h4>Sanchit Howdy</h4>
+                <h5>$ 38.00</h5>
+                <button class="btn-cart">Add to cart</button>
+            </div>
+            <!-- Produit 3 -->
+            <div class="featured">
+                <div class="product-img"><img src="img/product-item3.jpg" alt="Livre 3"></div>
+                <h3>The lady beauty Scarlett</h3>
+                <h4>Arthur Doyle</h4>
+                <h5>$ 45.00</h5>
+                <button class="btn-cart">Add to cart</button>
+            </div>
+            <!-- Produit 4 -->
+            <div class="featured">
+                <div class="product-img"><img src="img/product-item4.jpg" alt="Livre 4"></div>
+                <h3>Once upon a time</h3>
+                <h4>Klien Marry</h4>
+                <h5>$ 35.00</h5>
+                <button class="btn-cart">Add to cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-selling" id="popular">
+        <div class="best-book">
+            <img src="img/product-item1.jpg" alt="Meilleur livre">
+        </div>
+        <div class="best-book-descript">
+            <h2>Best Selling Book</h2>
+            <p class="author">By Timbur Hood</p>
+            <h3>Birds gonna be happy</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra
+                hac.</p>
+            <h4>$ 45.00</h4>
+            <button class="btn-primary">Buy Now</button>
+        </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-title">
+            Subscribe to our <br> newsletter
+        </div>
+        <div class="text">
+            <p>Sed eu feugiat amet, libero ipsum enim pharetra hac dolor sit amet, consectetur. Elit adipiscing enim
+                pharetra hac.</p>
+            <form action="" method="get">
+                <input type="email" placeholder="Enter your mail here" required>
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+    </section>
+
+    <section class="device" id="device">
+        <div class="device-img">
+            <img src="img/device.png" alt="Appareil">
+        </div>
+        <div class="device-text">
+            <h2>Download our app now !</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin.
+                Amet sed lorem posuere sit iaculis amet, ac urna.</p>
+            <div class="app-buttons">
+                <button><img src="img/google-play.jpg" alt="Google Play"></button>
+                <button><img src="img/app-store.jpg" alt="App Store"></button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>© 2024 All rights reserved.</div>
+        <div id="link"></div>
+    </footer>
+</body>
+
+</html>
