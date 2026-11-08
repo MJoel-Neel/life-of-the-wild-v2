@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Book Landing Page</title>
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="./script.js" defer></script>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <script src="./script.js" defer></script>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,9 +24,14 @@
                 <i class="fa-brands fa-youtube"></i>
             </div>
             <div class="user-actions">
-                <i class="fa-solid fa-user"><span>Account</span></i>
-                <i class="fa-solid fa-cart-shopping"><span>Cart(0$)</span></i>
-                <!-- Bouton Mode Sombre -->
+                <div id="account-btn" class="action-btn" onclick="openAuthModal()">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="user-display">Account</span>
+                </div>
+                <div id="cart-btn" class="action-btn" onclick="openCartModal()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-display">Cart(0$)</span>
+                </div>
                 <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -57,8 +56,7 @@
         <main class="principal" id="home">
             <div class="principal-text">
                 <h1>Life of the wild</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem obcaecati cum animi
-                    molestias omnis aperiam tempora provident nostrum nobis soluta sed, illo nulla.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem obcaecati cum animi molestias omnis aperiam tempora provident nostrum nobis soluta sed, illo nulla.</p>
                 <button class="btn-primary">Read more</button>
             </div>
             <div class="principal-img">
@@ -81,36 +79,48 @@
 
         <div class="featured-book-container">
             <!-- Produit 1 -->
-            <div class="featured">
+            <div class="featured" data-id="1" data-title="Simple way of piece life" data-author="Armor Ramsey" data-price="40.00" data-img="img/product-item1.jpg">
                 <div class="product-img"><img src="img/product-item1.jpg" alt="Livre 1"></div>
                 <h3>Simple way of piece life</h3>
                 <h4>Armor Ramsey</h4>
                 <h5>$ 40.00</h5>
-                <button class="btn-cart">Add to cart</button>
+                <div class="card-actions">
+                    <button class="btn-read" onclick="openReadModal(this)">Read me</button>
+                    <button class="btn-cart" onclick="addToCart(this)">Add to cart</button>
+                </div>
             </div>
             <!-- Produit 2 -->
-            <div class="featured">
+            <div class="featured" data-id="2" data-title="Great travel at desert" data-author="Sanchit Howdy" data-price="38.00" data-img="img/product-item2.jpg">
                 <div class="product-img"><img src="img/product-item2.jpg" alt="Livre 2"></div>
                 <h3>Great travel at desert</h3>
                 <h4>Sanchit Howdy</h4>
                 <h5>$ 38.00</h5>
-                <button class="btn-cart">Add to cart</button>
+                <div class="card-actions">
+                    <button class="btn-read" onclick="openReadModal(this)">Read me</button>
+                    <button class="btn-cart" onclick="addToCart(this)">Add to cart</button>
+                </div>
             </div>
             <!-- Produit 3 -->
-            <div class="featured">
+            <div class="featured" data-id="3" data-title="The lady beauty Scarlett" data-author="Arthur Doyle" data-price="45.00" data-img="img/product-item3.jpg">
                 <div class="product-img"><img src="img/product-item3.jpg" alt="Livre 3"></div>
                 <h3>The lady beauty Scarlett</h3>
                 <h4>Arthur Doyle</h4>
                 <h5>$ 45.00</h5>
-                <button class="btn-cart">Add to cart</button>
+                <div class="card-actions">
+                    <button class="btn-read" onclick="openReadModal(this)">Read me</button>
+                    <button class="btn-cart" onclick="addToCart(this)">Add to cart</button>
+                </div>
             </div>
             <!-- Produit 4 -->
-            <div class="featured">
+            <div class="featured" data-id="4" data-title="Once upon a time" data-author="Klien Marry" data-price="35.00" data-img="img/product-item4.jpg">
                 <div class="product-img"><img src="img/product-item4.jpg" alt="Livre 4"></div>
                 <h3>Once upon a time</h3>
                 <h4>Klien Marry</h4>
                 <h5>$ 35.00</h5>
-                <button class="btn-cart">Add to cart</button>
+                <div class="card-actions">
+                    <button class="btn-read" onclick="openReadModal(this)">Read me</button>
+                    <button class="btn-cart" onclick="addToCart(this)">Add to cart</button>
+                </div>
             </div>
         </div>
     </section>
@@ -123,10 +133,9 @@
             <h2>Best Selling Book</h2>
             <p class="author">By Timbur Hood</p>
             <h3>Birds gonna be happy</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra
-                hac.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
             <h4>$ 45.00</h4>
-            <button class="btn-primary">Buy Now</button>
+            <button class="btn-primary" onclick="openReadModal(this.closest('.best-selling'))">Read me</button>
         </div>
     </section>
 
@@ -135,10 +144,9 @@
             Subscribe to our <br> newsletter
         </div>
         <div class="text">
-            <p>Sed eu feugiat amet, libero ipsum enim pharetra hac dolor sit amet, consectetur. Elit adipiscing enim
-                pharetra hac.</p>
-            <form action="" method="get">
-                <input type="email" placeholder="Enter your mail here" required>
+            <p>Sed eu feugiat amet, libero ipsum enim pharetra hac dolor sit amet, consectetur. Elit adipiscing enim pharetra hac.</p>
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Enter your mail here" required>
                 <input type="submit" value="SEND">
             </form>
         </div>
@@ -150,8 +158,7 @@
         </div>
         <div class="device-text">
             <h2>Download our app now !</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin.
-                Amet sed lorem posuere sit iaculis amet, ac urna.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna.</p>
             <div class="app-buttons">
                 <button><img src="img/google-play.jpg" alt="Google Play"></button>
                 <button><img src="img/app-store.jpg" alt="App Store"></button>
@@ -163,6 +170,71 @@
         <div>© 2024 All rights reserved.</div>
         <div id="link"></div>
     </footer>
-</body>
 
+    <!-- ================= MODALS ================= -->
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('cart-modal')">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total" class="cart-total">Total: $0.00</div>
+            <button class="btn-primary checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content auth-content">
+            <span class="close-btn" onclick="closeModal('auth-modal')">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" onclick="switchAuthTab('register')">Register</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active" onsubmit="handleLogin(event)">
+                <h2>Welcome Back</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form" onsubmit="handleRegister(event)">
+                <h2>Create Account</h2>
+                <input type="text" id="reg-name" placeholder="Full Name" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+
+            <div id="logged-in-view" class="auth-form">
+                <h2>My Account</h2>
+                <p id="profile-name"></p>
+                <button class="btn-cart" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Read Me Modal -->
+    <div id="read-modal" class="modal">
+        <div class="modal-content read-content">
+            <span class="close-btn" onclick="closeModal('read-modal')">&times;</span>
+            <div class="read-layout">
+                <img id="read-img" src="" alt="Book Cover">
+                <div class="read-info">
+                    <h2 id="read-title"></h2>
+                    <h4 id="read-author"></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+</body>
 </html>
